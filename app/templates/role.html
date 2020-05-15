@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block page_content %}
+<div class=""></div>
+{% for r in role %}
+<div class="media" onclick="location='#'" style="border:1px solid #ddd; border-radius:5px;cursor:pointer">
+  <div class="media-left">
+      <img class="media-object" src="../static/images/favicon.ico" alt="...">
+  </div>
+  <div class="media-body media-right" style="padding:10px 15px">
+    <h4 class="media-heading">{{ r.name }}</h4>
+    <p>Id  :{{ r.id }}</p>
+    <p>Num :{{ r.num }}</p>
+    <p>Detail:{{ r.detail }}</p>
+  </div>
+</div>
+{% endfor %}
+{% endblock %}

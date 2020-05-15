@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+	{% block page_content %}
+	<!-- <div class='from-search'>
+	{{ wtf.quick_form(search) }}
+	</div> -->
+	</br>
+	<form method='POST'>
+		{{ search.csrf_token }}
+		{{ search.hidden_tag() }}
+		{{ search.note.label }} {{ search.note(size=18) }}
+		{{ search.submit() }}
+	</form>
+	</br>
+	<div class="panel panel-default">
+		<div class="panel-heading">Role details</div>
+	<table class="table table-hover">
+		<thead>
+			<tr>
+			<th>Id	</th>
+			<th>Name</th>
+			<th>Num</th>
+			<th>Detail</th>
+			</tr>
+		</thead>
+		<tbody>
+		{% for l in ls %}
+			<tr onclick="location.href='/role/{{ l.name }}'" style="cursor:pointer">
+			<td>{{ l.id }}</td>
+			<td>{{ l.name }}</td>
+			<td>{{ l.num }}</td>
+			<td>{{ l.detail }}</td>
+			</tr>
+		{% endfor %}
+		</tbody>
+	</table>
+	</div>
+	{% endblock %}
